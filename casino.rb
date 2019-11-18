@@ -1,6 +1,7 @@
 require 'pry'
 require_relative 'player'
 require_relative 'slots'
+require_relative 'craps'
 
 class Casino
 	attr_accessor :bank_amount
@@ -42,8 +43,8 @@ class Casino
 			high_low_game = HighLow.new
 			high_low_game.play
 		when 3
-			craps_game = Craps.new
-			craps_game.play
+			craps_game = Craps.new(@new_player.wallet)
+			craps_game.intro
 		when 4
 			puts "You have $#{@new_player.wallet} in your wallet."
 			game_menu
