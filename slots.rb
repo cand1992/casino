@@ -6,6 +6,7 @@ class Slots
 		@amount = amount
 	end
 	def play
+		
 		if @amount == 0
 			puts "You must have money in order to play!"
 		else
@@ -50,3 +51,4 @@ class Slots
 		end
 	end
 end
+
