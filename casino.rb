@@ -14,8 +14,10 @@ class Casino
 		player_name = gets.strip.capitalize
 		puts "How much do you want to play with today, the house limit is $#{@bank_amount}."
 		player_wallet = gets.strip.to_i
+		
 		new_player = Player.new(player_name, player_wallet)
 		puts "Okay, #{new_player.name}, you have borrowed $#{new_player.wallet}"
+		
 		game_menu
 	end
 
