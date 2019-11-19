@@ -1,5 +1,9 @@
 require 'colorize'
 
+require_relative 'player'
+require_relative 'slots'
+require_relative 'craps'
+
 # class High_Low
 #     attr_accessor : amount
 #     def initialize(amount)
