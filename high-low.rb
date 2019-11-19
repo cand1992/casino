@@ -45,6 +45,82 @@ require 'colorize'
     puts "#{card.rank} #{card.suit}"
   end
 
+      #create an array listing all 52 cards or do 2 - ace
+      # make variables of dealer card vs player card
+      #player_card = array.sample
+      #dealer_card = array.sample --> will randomize it
+
+    class Card
+      attr_reader :suit, :value
+        def initialize(suit, value)
+            @suit = suit
+            @value = value
+        end
+        def value
+            return 10 if ["J", "Q", "K"].include?(@value)
+            return 11 if @value == "A"
+        end
+        def to_s
+            "#{@value}-#{suit}"
+        end
+    end
+
+    class Deck
+          attr_reader :cards
+
+          def initialize
+            @cards = Deck.build_cards
+          end
+
+          def self.build_cards
+                cards = []
+                end
+                cards.shuffle
+          end
+    end
+    
+    puts "Pick a Card"
+      #player gets card from dealer - variable is player_card
+      #need the player_card variable
+
+    
+      #user case choice of betting high or low, any other text is invalid and will go back to 'bet'
+      def bet
+        puts "Place your bet. You may choose High or Low."
+          puts "High"
+          puts "Low"
+          puts "Exit"
+
+          user_choice = gets.strip.to_s
+          case bet_choice
+            when "High"
+          end
+      end
+
+      #dealer flips next card, the result will either be higher or lower than player card
+      #need the dealer_card variable here
+
+      #bet is placed, results will be through game_result
+    def game_result
+      if high
+        @dealer_card > @player_card   
+        
+      if low
+        @dealer_card < @player_card
+      else
+        puts "Try again."
+        game_result
+      end
+    end
+    
+
+
+      @player_card = array.sample
+      @dealer_card = array.sample
+
+
+
+
 
     # def play
     #   if @amount == 0
