@@ -1,8 +1,8 @@
 require 'colorize'
 
 require_relative 'player'
-require_relative 'slots'
-require_relative 'craps'
+# require_relative 'slots'
+# require_relative 'craps'
 
 class High_low  
   attr_accessor :amount
@@ -46,23 +46,23 @@ end
 
 
 
-# class High_Low
-#     attr_accessor : amount
-#     def initialize(amount)
-#         @amount = amount
-#     end
+class High_Low
+    attr_accessor : amount
+    def initialize(amount)
+        @amount = amount
+    end
 
-  # class Card
-  #   RANKS = %w(2 3 4 5 6 7 8 9 10 J Q K A) 
-  #   SUITS = %w(Spade Heart Club Diamond)
+  class Card
+    RANKS = %w(2 3 4 5 6 7 8 9 10 J Q K A) 
+    SUITS = %w(Spade Heart Club Diamond)
 
-  #   attr_accessor : rank, suit
+    attr_accessor : rank, suit
 
-  #   def initialize(id)
-  #     self.rank = RANKS[id % 13]
-  #     self.suit = SUITS[id % 4]
-  #   end 
-  # end
+    def initialize(id)
+      self.rank = RANKS[id % 13]
+      self.suit = SUITS[id % 4]
+    end 
+  end
   
   # class Deck
   #   attr_accessor : cards
@@ -125,39 +125,39 @@ end
   #         end
   #   end
     
-  #   puts "Pick a Card"
-  #     #player gets card from dealer - variable is player_card
-  #     #need the player_card variable
+    puts "Pick a Card"
+      #player gets card from dealer - variable is player_card
+      #need the player_card variable
 
     
-  #     #user case choice of betting high or low, any other text is invalid and will go back to 'bet'
-  #     def bet
-  #       puts "Place your bet. You may choose High or Low."
-  #         puts "High"
-  #         puts "Low"
-  #         puts "Exit"
+      #user case choice of betting high or low, any other text is invalid and will go back to 'bet'
+      def bet
+        puts "Place your bet. You may choose High or Low."
+          puts "High"
+          puts "Low"
+          puts "Exit"
 
-  #         user_choice = gets.strip.to_s
-  #         case bet_choice
-  #           when "High"
-  #         end
-  #     end
+          user_choice = gets.strip.to_s
+          case bet_choice
+            when "High"
+          end
+      end
 
-  #     #dealer flips next card, the result will either be higher or lower than player card
-  #     #need the dealer_card variable here
+      #dealer flips next card, the result will either be higher or lower than player card
+      #need the dealer_card variable here
 
-  #     #bet is placed, results will be through game_result
-  #   def game_result
-  #     if high
-  #       @dealer_card > @player_card   
+      #bet is placed, results will be through game_result
+    def game_result
+      if high
+        @dealer_card > @player_card   
         
-  #     if low
-  #       @dealer_card < @player_card
-  #     else
-  #       puts "Try again."
-  #       game_result
-  #     end
-  #   end
+      elsif low
+        @dealer_card < @player_card
+      else
+        puts "Try again."
+        game_result
+      end
+    end
     
 
 
