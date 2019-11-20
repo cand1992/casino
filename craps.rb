@@ -59,12 +59,11 @@ class Craps
         @dice1 = [1,2,3,4,5,6]
         @dice2 = [1,2,3,4,5,6]
         def dice_roll
-          puts "\n"
           d1_rolled = @dice1.sample
           d2_rolled = @dice2.sample
           @total_roll = d1_rolled + d2_rolled          
           puts "First Dice: #{d1_rolled}, Second Dice: #{d2_rolled}"
-          puts "TOTAL ROLL: #{@total_roll}".yellow
+          puts "You rolled: #{@total_roll}"
           puts "\n"
         end
         puts "\n"
@@ -78,12 +77,11 @@ class Craps
         bet_type = gets.strip.to_i
         case bet_type
         when 1
-          puts "\n"
           puts "Placing $#{bet}.00 for Pass line bet(y/n)?"
            answer = gets.strip.capitalize
            if answer == "Y"
             dice_roll
-            
+            puts "Your total roll is #{@total_roll}"
               if @total_roll == 7 || @total_roll == 11
                 
                 puts "\n"
@@ -125,20 +123,14 @@ class Craps
                else 
                 @point = []
                 @point << @total_roll
-                puts "#{@point} is now POINT"
+                puts "#{@point[0]} is now POINT"
                 puts "Roll a #{@point} before you roll a 7 to win!"
                 puts "\n"
-                puts "Press 'Enter' to Roll Dice"
-                 answer2 = gets.strip
-                  if answer2 = "/r"                  
+                puts "Roll again? (y/n)"
+                   answer2 = gets.strip.capitalize
+                  if answer2 == "Y"                  
                      until @total_roll == @point || @total_roll == 7 do
                       dice_roll
-                      puts "Press 'Enter' to Roll Dice"
-                      answer3 = gets.strip
-                         if answer3 = "/r"
-                          
-                         end
-                      
                        if @total_roll == @point
                         puts "You win! You won $#{bet}!"
                         @amount += bet
@@ -156,10 +148,7 @@ class Craps
                         puts "Do you want to play again? (y/n)"
                           if gets.strip.capitalize == "Y"
                           play
-                          elsif gets.strip.capitalize == "N"
-                            exit
-                          else
-                            puts "Invalid Choice"
+                        
                             exit
                           end
                        end
@@ -169,11 +158,7 @@ class Craps
 
               end
 
-           elsif answer == "N"
-            play
-          else 
-            puts "Incorrect option"
-            play
+           
            end
           
         when 2
@@ -181,7 +166,7 @@ class Craps
            answer = gets.strip.capitalize
            if answer == "Y"
             dice_roll
-            
+            puts "Your total roll is #{@total_roll}"
               if @total_roll == 7 || @total_roll == 11
                 
                 puts "\n"
@@ -195,11 +180,7 @@ class Craps
                 puts "Do you want to play again? y/n"
 					      if gets.strip.capitalize == "Y"
                  play
-                elsif gets.strip.capitalize == "N"
-                  exit
-                else
-                  puts "Invalid Choice"
-                  exit
+                
 					      end
                elsif @total_roll == 2 || @total_roll == 3 || @total_roll == 12
                 puts "\n"
@@ -214,10 +195,7 @@ class Craps
                 puts "Do you want to play again? y/n"
                   if gets.strip.capitalize == "Y"
                   play
-                  elsif gets.strip.capitalize == "N"
-                    exit
-                  else
-                    puts "Invalid Choice"
+                  
                     exit
                   end
                else 
@@ -226,17 +204,12 @@ class Craps
                 puts "#{@point} is now POINT"
                 puts "Roll a 7 before a #{@point} is rolled to win!"
                 puts "\n"
-                puts "Press 'ENTER' to Roll"
-                   answer2 = gets.strip
-                  if answer2 == "/r"                  
-                     until @total_roll = @point || @total_roll == 7 do
+                puts "Roll again? (y/n)"
+                   answer2 = gets.strip.capitalize
+                  if answer2 == "Y"                  
+                     until @total_roll == @point || @total_roll == 7 do
                       dice_roll
-                      puts "Press 'Enter' to Roll Dice"
-                      answer3 = gets.strip
-                         if answer3 == "/r"
-                          
-                         end
-                       if @total_roll = @point
+                       if @total_roll == @point
                         puts "\n"
                         puts "--------------------------".yellow
                         puts "    You rolled point!".red
@@ -258,10 +231,7 @@ class Craps
                         puts "Do you want to play again? (y/n)"
                           if gets.strip.capitalize == "Y"
                           play
-                          elsif gets.strip.capitalize == "N"
-                            exit
-                          else
-                            puts "Invalid Choice"
+                          
                             exit
                           end
                        end
@@ -271,11 +241,7 @@ class Craps
 
               end
 
-           elsif answer == "N"
-            play
-          else 
-            puts "Incorrect option"
-            play
+           
            end
         end
 
@@ -284,4 +250,3 @@ class Craps
 
   end
 end
-
