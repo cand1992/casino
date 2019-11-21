@@ -2,7 +2,7 @@ require 'pry'
 require_relative 'player'
 require_relative 'slots'
 require_relative 'craps'
-require_relative 'high_low_game'
+require_relative 'high-low'
 
 
 class Casino
@@ -17,11 +17,10 @@ class Casino
 		puts "Please enter your name:"
 		player_name = gets.strip.capitalize
 		puts "How much do you want to play with today, the house limit is $#{@bank_amount}."
-		if gets.strip.to_i > 5000 || gets.strip.to_i < 0
+		player_wallet = gets.strip.to_i
+		if player_wallet > 5000 || player_wallet < 0
 			puts "Sorry you must enter an amount between $0 and $5000. Try again!"
 			intro
-		else
-		player_wallet = gets.strip.to_i
 		end
 		@new_player = Player.new(player_name, player_wallet)
 		puts "Okay, #{@new_player.name}, you have borrowed $#{@new_player.wallet}"

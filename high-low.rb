@@ -1,8 +1,5 @@
 require 'colorize'
 
-require_relative 'player'
-require_relative 'slots'
-require_relative 'craps'
 
 
 class HighLow
@@ -101,5 +98,3 @@ class HighLow
 	end
 end
 
-high_low = HighLow.new(5000)
-high_low.play
