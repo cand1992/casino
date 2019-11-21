@@ -54,7 +54,7 @@ class Casino
 		when 3
 			craps_game = Craps.new(@new_player.wallet)
 			craps_game.intro
-			@newplayer.wallet = slots_game.amount
+			@new_player.wallet = craps_game.amount
 			game_menu
 		when 4
 			puts "You have $#{@new_player.wallet} in your wallet."

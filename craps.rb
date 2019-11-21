@@ -97,11 +97,8 @@ class Craps
                 puts "Do you want to play again? y/n"
 					      if gets.strip.capitalize == "Y"
                  play
-                elsif gets.strip.capitalize == "N"
-                  exit
-                else
-                  puts "Invalid Choice"
-                  exit
+                
+                  
 					      end
                elsif @total_roll == 2 || @total_roll == 3 || @total_roll == 12
                 puts "\n"
@@ -126,20 +123,20 @@ class Craps
                 @point = []
                 @point << @total_roll
                 puts "#{@point[0]} is now POINT"
-                puts "Roll a #{@point} before you roll a 7 to win!"
+                puts "Roll a #{@point[0]} before you roll a 7 to win!"
                 puts "\n"
-                puts "Press 'Enter' to Roll Dice"
-                 answer2 = gets.strip
-                  if answer2 = "/r"                  
+                puts "Ready to roll dice(Y/N)"
+                 answer2 = gets.strip.capitalize
+                  if answer2 == "Y"                  
                      until @total_roll == @point || @total_roll == 7 do
                       dice_roll
-                      puts "Press 'Enter' to Roll Dice"
-                      answer3 = gets.strip
-                         if answer3 = "/r"
+                      puts "Roll Dice (Y/N)"
+                      answer3 = gets.strip.capitalize
+                         if answer3 == "Y"
                           
                          end
                       
-                       if @total_roll == @point
+                       if @total_roll == @point[0]
                         puts "You win! You won $#{bet}!"
                         @amount += bet
                         play
@@ -212,17 +209,17 @@ class Craps
                 puts "#{@point} is now POINT"
                 puts "Roll a 7 before a #{@point} is rolled to win!"
                 puts "\n"
-                puts "Press 'ENTER' to Roll"
+                puts "Ready to roll again?(Y/N)"
                    answer2 = gets.strip
-                  if answer2 == "/r"                  
+                  if answer2 == "Y"                  
                      until @total_roll = @point || @total_roll == 7 do
                       dice_roll
-                      puts "Press 'Enter' to Roll Dice"
+                      puts "Ready to roll dice?(Y/N)"
                       answer3 = gets.strip
-                         if answer3 == "/r"
+                         if answer3 == "Y"
                           
                          end
-                       if @total_roll = @point
+                       if @total_roll == @point
                         puts "\n"
                         puts "--------------------------".yellow
                         puts "    You rolled point!".red
