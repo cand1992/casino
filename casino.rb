@@ -18,7 +18,7 @@ class Casino
 		player_name = gets.strip.capitalize
 		puts "How much do you want to play with today, the house limit is $#{@bank_amount}."
 		if gets.strip.to_i > 5000 || gets.strip.to_i < 0
-			puts "Sorry you must enter an amount between $0 and $5000. Try again."
+			puts "Sorry you must enter an amount between $0 and $5000. Try again!"
 			intro
 		else
 		player_wallet = gets.strip.to_i
