@@ -2,6 +2,8 @@ require 'pry'
 require_relative 'player'
 require_relative 'slots'
 require_relative 'craps'
+require_relative 'high_low_game'
+
 
 class Casino
 	attr_accessor :bank_amount
@@ -15,7 +17,12 @@ class Casino
 		puts "Please enter your name:"
 		player_name = gets.strip.capitalize
 		puts "How much do you want to play with today, the house limit is $#{@bank_amount}."
+		if gets.strip.to_i > 5000 || gets.strip.to_i < 0
+			puts "Sorry you must enter an amount between $0 and $5000. Try again."
+			intro
+		else
 		player_wallet = gets.strip.to_i
+		end
 		@new_player = Player.new(player_name, player_wallet)
 		puts "Okay, #{@new_player.name}, you have borrowed $#{@new_player.wallet}"
 		game_menu
@@ -40,8 +47,10 @@ class Casino
 			@new_player.wallet = slots_game.amount
 			game_menu
 		when 2
-			high_low_game = HighLow.new
+			high_low_game = HighLow.new(@new_player.wallet)
 			high_low_game.play
+			@new_player.wallet = high_low_game.amount
+			game_menu
 		when 3
 			craps_game = Craps.new(@new_player.wallet)
 			craps_game.intro
