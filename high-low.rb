@@ -42,9 +42,6 @@ class HighLow
 
     if user_input == "yes"
       play
-    else user_input == "no"
-      puts "See you later."
-      # route into Casino w/team
     end
   end
   
